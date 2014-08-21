@@ -1,8 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "ProgressState.h"
+
 
 ProgressState::ProgressState(unsigned int target)
 	: m_value(0), m_target(target)
 {
+    void *ptr=malloc(1000);
 }
 
 ProgressState::~ProgressState()
@@ -22,6 +26,7 @@ void ProgressState::setValue(int value)
 	else
 	{
 		m_value = value;
+
 	}
 
 }
