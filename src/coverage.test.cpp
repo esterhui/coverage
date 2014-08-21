@@ -23,3 +23,10 @@ TEST(ProgressStateTest, valueEqualTargetIsHundredPercent)
 	progress.setValue(200);
 	ASSERT_EQ((unsigned int) 100, progress.getPercentage());
 }
+
+TEST(ProgressStateTest, normalTest)
+{
+	ProgressState progress(100);
+	progress.setValue(10);
+	ASSERT_EQ((unsigned int) 10, progress.getPercentage());
+}

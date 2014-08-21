@@ -6,7 +6,6 @@
 ProgressState::ProgressState(unsigned int target)
 	: m_value(0), m_target(target)
 {
-    void *ptr=malloc(1000);
 }
 
 ProgressState::~ProgressState()
