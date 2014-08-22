@@ -38,7 +38,7 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: coverage
+all: coverage  rf
 
 # Tool invocations
 coverage: $(OBJS) $(USER_OBJS)
@@ -48,9 +48,15 @@ coverage: $(OBJS) $(USER_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
+rf: coverage_tests.robot coverageLibrary.py
+	mkdir -p rf_output/
+	pybot -d rf_output coverage_tests.robot
+
+
 # Other Targets
 clean:
 	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) coverage
+	-$(RM) *.xml rf_output
 	-@echo ' '
 
 .PHONY: all clean dependents
