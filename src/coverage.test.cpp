@@ -30,3 +30,10 @@ TEST(ProgressStateTest, normalTest)
 	progress.setValue(10);
 	ASSERT_EQ((unsigned int) 10, progress.getPercentage());
 }
+
+TEST(ProgressStateTest, OverTest)
+{
+	ProgressState progress(10);
+	progress.setValue(20);
+	ASSERT_EQ((unsigned int) 100, progress.getPercentage());
+}
